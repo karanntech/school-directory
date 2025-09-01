@@ -12,9 +12,16 @@ const ShowSchools = () => {
       try {
         const res = await fetch("/api/get-schools");
         const data = await res.json();
-        setSchools(data);
+
+        if (Array.isArray(data)) {
+          setSchools(data);
+        } else {
+          console.error("API returned non-array data:", data);
+          setSchools([]);
+        }
       } catch (err) {
-        console.error(err);
+        console.error("Failed to fetch schools:", err);
+        setSchools([]);
       } finally {
         setLoading(false);
       }

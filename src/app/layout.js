@@ -14,7 +14,9 @@ export default function RootLayout({ children }) {
         {/* Header */}
         <header className="bg-blue-600 text-white shadow-md">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+            <Link href="/">
             <h1 className="text-xl font-bold mb-2 md:mb-0">School Directory</h1>
+            </Link>
             <nav className="space-x-4">
               <Link href="/add-school" className="hover:underline">
                 Add School
